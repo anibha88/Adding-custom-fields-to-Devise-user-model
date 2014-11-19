@@ -1,0 +1,454 @@
+  [1m[36m (189.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (143.9ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to DeviseCreateUsers (20141119133930)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (19.3ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20141119133930"]]
+  [1m[36m (177.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-19 19:13:28 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/nithin/.rvm/gems/ruby-2.1.0/gems/railties-4.1.5/lib/rails/templates/rails/welcome/index.html.erb (2.5ms)
+Completed 200 OK in 87ms (Views: 43.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-19 19:14:29 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 1377ms (Views: 1347.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-19 19:14:30 +0530
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 53ms (Views: 50.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2014-11-19 19:14:30 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-19 19:14:30 +0530
+
+
+Started GET "/assets/dashboard.css?body=1" for 127.0.0.1 at 2014-11-19 19:14:30 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-19 19:14:30 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-19 19:14:30 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-11-19 19:14:30 +0530
+
+
+Started GET "/assets/dashboard.js?body=1" for 127.0.0.1 at 2014-11-19 19:14:30 +0530
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-11-19 19:14:30 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-19 19:14:30 +0530
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2014-11-19 19:14:34 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (2.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (148.7ms)
+Completed 200 OK in 248ms (Views: 199.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2014-11-19 19:14:37 +0530
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.4ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 66ms (Views: 64.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-11-19 19:14:50 +0530
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EtoVXC9rGru9sul4zlHhjDph3t3+Tr9uQ+px3phXKEQ=", "user"=>{"email"=>"a@a.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'a@a.com' LIMIT 1[0m
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("created_at", "email", "encrypted_password", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", "2014-11-19 13:44:50.238726"], ["email", "a@a.com"], ["encrypted_password", "$2a$10$ng3kIVTXAMbiyQ6O92HTWOV1oROrN6aPJFI9ug2neyawsOaYcvjTe"], ["updated_at", "2014-11-19 13:44:50.238726"]]
+  [1m[36m (185.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+Binary data inserted for `string` type on column `current_sign_in_ip`
+Binary data inserted for `string` type on column `last_sign_in_ip`
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_at" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = 1[0m  [["current_sign_in_at", "2014-11-19 13:44:50.429511"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_at", "2014-11-19 13:44:50.429511"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2014-11-19 13:44:50.431623"]]
+  [1m[35m (160.5ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 507ms (ActiveRecord: 347.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-19 19:14:50 +0530
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+Redirected to http://localhost:3000/dashboard/index
+Completed 302 Found in 9ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/dashboard/index" for 127.0.0.1 at 2014-11-19 19:14:50 +0530
+Processing by DashboardController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered dashboard/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 51ms (Views: 49.2ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2014-11-19 19:14:58 +0530
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"EtoVXC9rGru9sul4zlHhjDph3t3+Tr9uQ+px3phXKEQ="}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 175ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-19 19:14:58 +0530
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 60ms (Views: 58.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/dashboard.css?body=1" for 127.0.0.1 at 2014-11-19 19:14:58 +0530
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2014-11-19 19:14:58 +0530
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-11-19 19:14:58 +0530
+
+
+Started GET "/assets/dashboard.js?body=1" for 127.0.0.1 at 2014-11-19 19:14:58 +0530
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2014-11-19 19:15:00 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 50ms (Views: 48.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2014-11-19 19:15:08 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eSz8f0N1k61iQqvKPZkNnFOy8Y6fcknJrl2rgY6AuGc=", "user"=>{"email"=>"a@a.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."email" = 'a@a.com'  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = 1  [["current_sign_in_at", "2014-11-19 13:45:08.992461"], ["sign_in_count", 2], ["updated_at", "2014-11-19 13:45:08.993092"]]
+  [1m[36m (174.4ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 310ms (ActiveRecord: 175.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-19 19:15:09 +0530
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Redirected to http://localhost:3000/dashboard/index
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/dashboard/index" for 127.0.0.1 at 2014-11-19 19:15:09 +0530
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered dashboard/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 60ms (Views: 55.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/dashboard.css?body=1" for 127.0.0.1 at 2014-11-19 19:15:09 +0530
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2014-11-19 19:15:09 +0530
+
+
+Started GET "/assets/dashboard.js?body=1" for 127.0.0.1 at 2014-11-19 19:15:09 +0530
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-11-19 19:15:09 +0530
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2014-11-19 19:15:13 +0530
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"DCAkUbq7Zc16YSxOI2bUQY0aivKkos8bpW2w0k1Gj7o="}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-19 19:15:13 +0530
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 51ms (Views: 49.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2014-11-19 19:15:13 +0530
+
+
+Started GET "/assets/dashboard.css?body=1" for 127.0.0.1 at 2014-11-19 19:15:13 +0530
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-11-19 19:15:13 +0530
+
+
+Started GET "/assets/dashboard.js?body=1" for 127.0.0.1 at 2014-11-19 19:15:13 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddFieldsToUsers (20141119134705)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "users" ADD "first_name" varchar(255)[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "users" ADD "last_name" varchar(255)
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20141119134705"]]
+  [1m[35m (181.7ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2014-11-19 19:21:12 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (22.6ms)
+Completed 200 OK in 145ms (Views: 106.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2014-11-19 19:21:14 +0530
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.4ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 58ms (Views: 55.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2014-11-19 19:29:45 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.3ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (32.2ms)
+Completed 200 OK in 349ms (Views: 319.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/registrations.css?body=1" for 127.0.0.1 at 2014-11-19 19:29:45 +0530
+
+
+Started GET "/assets/registrations.js?body=1" for 127.0.0.1 at 2014-11-19 19:29:45 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-19 19:29:45 +0530
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2014-11-19 19:29:45 +0530
+
+
+Started GET "/assets/dashboard.css?body=1" for 127.0.0.1 at 2014-11-19 19:29:45 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-19 19:29:45 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-19 19:29:45 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-11-19 19:29:45 +0530
+
+
+Started GET "/assets/dashboard.js?body=1" for 127.0.0.1 at 2014-11-19 19:29:45 +0530
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-11-19 19:29:45 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-19 19:29:45 +0530
+
+
+Started POST "/users" for 127.0.0.1 at 2014-11-19 19:30:10 +0530
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"E9SUsiomudWog67VW18lzfj7Uz9JXoWF7ojhvnTjWUY=", "user"=>{"first_name"=>"Nithin", "last_name"=>"Bharadhwaj", "email"=>"anibha88@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'anibha88@gmail.com' LIMIT 1[0m
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("created_at", "email", "encrypted_password", "first_name", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", "2014-11-19 14:00:10.695991"], ["email", "anibha88@gmail.com"], ["encrypted_password", "$2a$10$lQYoyCco3ELZi8cgamzGYur7WQmLkaDfJCgGkfUHDPvrdETIPpk.O"], ["first_name", "Nithin"], ["last_name", "Bharadhwaj"], ["updated_at", "2014-11-19 14:00:10.695991"]]
+  [1m[36m (320.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Binary data inserted for `string` type on column `current_sign_in_ip`
+Binary data inserted for `string` type on column `last_sign_in_ip`
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_at" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = 2[0m  [["current_sign_in_at", "2014-11-19 14:00:11.022059"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_at", "2014-11-19 14:00:11.022059"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2014-11-19 14:00:11.024349"]]
+  [1m[35m (184.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 621ms (ActiveRecord: 506.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-19 19:30:11 +0530
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1[0m
+Redirected to http://localhost:3000/dashboard/index
+Completed 302 Found in 8ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/dashboard/index" for 127.0.0.1 at 2014-11-19 19:30:11 +0530
+Processing by DashboardController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered dashboard/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 72ms (Views: 67.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/dashboard.css?body=1" for 127.0.0.1 at 2014-11-19 19:30:11 +0530
+
+
+Started GET "/assets/registrations.css?body=1" for 127.0.0.1 at 2014-11-19 19:30:11 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-19 19:30:11 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-19 19:30:11 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-19 19:30:11 +0530
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2014-11-19 19:30:11 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-11-19 19:30:11 +0530
+
+
+Started GET "/assets/dashboard.js?body=1" for 127.0.0.1 at 2014-11-19 19:30:11 +0530
+
+
+Started GET "/assets/registrations.js?body=1" for 127.0.0.1 at 2014-11-19 19:30:11 +0530
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-11-19 19:30:11 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-19 19:30:11 +0530
+  [1m[36mUser Load (2.8ms)[0m  [1mSELECT "users".* FROM "users"[0m
+
+
+Started GET "/dashboard/index" for 127.0.0.1 at 2014-11-19 19:34:06 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by DashboardController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered dashboard/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 136ms (Views: 100.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/dashboard.css?body=1" for 127.0.0.1 at 2014-11-19 19:34:06 +0530
+
+
+Started GET "/assets/registrations.css?body=1" for 127.0.0.1 at 2014-11-19 19:34:06 +0530
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2014-11-19 19:34:06 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-19 19:34:06 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-19 19:34:06 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-19 19:34:06 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-11-19 19:34:06 +0530
+
+
+Started GET "/assets/dashboard.js?body=1" for 127.0.0.1 at 2014-11-19 19:34:06 +0530
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-11-19 19:34:06 +0530
+
+
+Started GET "/assets/registrations.js?body=1" for 127.0.0.1 at 2014-11-19 19:34:06 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-19 19:34:06 +0530
+
+
+Started GET "/dashboard/index" for 127.0.0.1 at 2014-11-19 19:35:47 +0530
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered dashboard/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 81ms (Views: 76.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/dashboard.css?body=1" for 127.0.0.1 at 2014-11-19 19:35:47 +0530
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2014-11-19 19:35:47 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-19 19:35:47 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-19 19:35:47 +0530
+
+
+Started GET "/assets/registrations.css?body=1" for 127.0.0.1 at 2014-11-19 19:35:47 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-19 19:35:47 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-11-19 19:35:47 +0530
+
+
+Started GET "/assets/dashboard.js?body=1" for 127.0.0.1 at 2014-11-19 19:35:47 +0530
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-11-19 19:35:47 +0530
+
+
+Started GET "/assets/registrations.js?body=1" for 127.0.0.1 at 2014-11-19 19:35:47 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-19 19:35:47 +0530
