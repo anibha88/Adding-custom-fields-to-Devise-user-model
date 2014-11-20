@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+   <title>Notes to add attributes to the devise user model</title>
+  </head>
+<body>
+Adding birthday field to users model
+
+-> rails g migration add_birthday_to_users birthday:date
+
+-> rake db:migrate
+
+-> Then Add this to form.html.erb
+
+<div class="field">
+    <%= f.label :birthday %><br>
+    <%= f.date_select :birthday %>
+</div>
+
+-> Finally in the registrations controller,
+
+class RegistrationsController < Devise::RegistrationsController
+ 
+  private
+ 
+  def sign_up_params
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation,:birthday)
+  end
+ 
+  def account_update_params
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :current_password,:birthday)
+  end
+end
+
+
+*** Success :) ****
+
+Adding Gender to users model
+
+-> rails g migration add_gender_to_users gender:string
+
+-> rake db:migrate
+
+-> Then add this to form.html.erb
+
+<div class="field">
+    <%= f.label :gender %><br />
+    <%= f.select :gender, options_for_select(%w[Male Female]) %>
+</div>
+
+-> Finally in the registrations controller,
+
+class RegistrationsController < Devise::RegistrationsController
+ 
+  private
+ 
+  def sign_up_params
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation,:birthday,:gender)
+  end
+ 
+  def account_update_params
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :current_password,:birthday,:gender)
+  end
+end
+
+***Success :) :) ***
+
+Adding username and phone number to users model
+
+-> rails g migration add_user_name_and_phone_no_to_users username:string phone_no:integer
+
+-> rake db:migrate
+
+-> Then add this to form.html.erb
+
+<div class="field">
+    <%= f.label :user_name %><br />
+    <%= f.text_field :user_name %>
+</div>
+
+<div class="field">
+    <%= f.label :phone_no %><br />
+    <%= f.text_field :phone_no %>
+</div>
+
+-> Finally in the registrations controller,
+
+class RegistrationsController < Devise::RegistrationsController
+ 
+  private
+ 
+  def sign_up_params
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation,:birthday,:gender,:user_name,:phone_no)
+  end
+ 
+  def account_update_params
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :current_password,:birthday,:gender,:user_name,:phone_no)
+  end
+end
+
+</body>  
+</html>

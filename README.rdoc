@@ -30,3 +30,9 @@ Please feel free to use a different markup language if you do not plan to run
 Superb article : Read more @
 
 http://www.jacopretorius.net/2014/03/adding-custom-fields-to-your-devise-user-model-in-rails-4.html
+
+For notes:
+
+http://localhost:3000/notes
+or 
+Refer to the notes.html file in the public directory.
