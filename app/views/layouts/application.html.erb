@@ -9,10 +9,12 @@
 <body>
 
 	<% if user_signed_in? %>
-	  		<p>Welcome <%= current_user.email %></p>
-	  		<%= link_to 'Logged In [click to logout]', destroy_user_session_path, :method => :delete %>
+	  		<p>Welcome <%= current_user.username %>, you are logged in </p>
+	  		<p align="right">
+	  		<%= link_to 'Click here to logout', destroy_user_session_path, :method => :delete %>
+	  		</p>
 		<% else %>
-	  		<p>You are not signed in.</p>
+	  		<p>You are not signed in. Please sign in to explore</p>
 	  		<%= link_to 'Login', new_user_session_path %>
 		<% end %>
 
@@ -22,6 +24,19 @@
 
 
 <%= yield %>
+
+<footer>
+<div id="footer">
+  <div class="container">
+    <h1><b>Note for the maintainer if any :) </b></h1>
+    <p>Dear maintainer: <br /> Once you are done trying to 'optimize' this routine,
+and have realized what a terrible mistake that was,
+please increment the following counter as a warning
+to the next guy: <br /> total_hours_wasted_here = 90 </p>
+	<strong>When I wrote this, only God and I understood what I was doing...Now, God only knows</strong>
+  </div>
+</div>
+</footer>
 
 </body>
 </html>

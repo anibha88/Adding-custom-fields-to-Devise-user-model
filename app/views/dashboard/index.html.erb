@@ -1,6 +1,15 @@
-<h1>Welcome to my Dashboard</h1>
-<p>Find me in app/views/dashboard/index.html.erb</p>
+<center><h1> <%= current_user.username %>'s Dashboard</h1></center>
 
 <p>Hey <%= current_user.first_name %> How are you? </p>
 
 <p>Your last name is <%= current_user.last_name %> Right? ;) </p>
+
+<h2>Your birthday is on <%= current_user.birthday %> </h2>
+
+<p>And your gender is <%= current_user.gender %> </p>
+
+<h3>Your other details are : </h3>
+
+<p>Your username is  <%= current_user.username %> </p>
+
+<p>And your phone number is <%= current_user.phone_no %> </p>
